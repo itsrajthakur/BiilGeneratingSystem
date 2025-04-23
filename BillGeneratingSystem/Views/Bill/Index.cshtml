@@ -1,0 +1,537 @@
+@model IEnumerable<Bill>
+@{
+    ViewData["Title"] = "Bills Management";
+}
+
+<div class="container py-4">
+    <!-- Header Section with Search -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm bg-primary text-white">
+                <div class="card-body py-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="mb-1 fw-bold"><i class="bi bi-receipt-cutoff me-2"></i>Bills Management</h2>
+                            <p class="mb-0 opacity-75">Manage and track all your billing information</p>
+                        </div>
+                        <div class="col-md-6 mt-3 mt-md-0">
+                            <div class="d-flex justify-content-md-end">
+                                <a asp-action="Create" class="btn btn-light text-primary me-2">
+                                    <i class="bi bi-plus-circle me-1"></i>Create New Bill
+                                </a>
+                                <button class="btn btn-outline-light" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse">
+                                    <i class="bi bi-funnel me-1"></i>Filter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filters Collapse Panel -->
+    <div class="collapse mb-4" id="filterCollapse">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title mb-3"><i class="bi bi-funnel me-2"></i>Filter Bills</h5>
+                <form id="filterForm" class="row g-3">
+                    <div class="col-md-3">
+                        <label class="form-label">Date Range</label>
+                        <select class="form-select" id="dateFilter">
+                            <option value="all">All Time</option>
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                            <option value="custom">Custom Range</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Payment Status</label>
+                        <select class="form-select" id="statusFilter">
+                            <option value="all">All Statuses</option>
+                            <option value="Paid">Paid</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Failed">Failed</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Payment Method</label>
+                        <select class="form-select" id="methodFilter">
+                            <option value="all">All Methods</option>
+                            <option value="Cash">Cash</option>
+                            <option value="Card">Card</option>
+                            <option value="UPI">UPI</option>
+                            <option value="Pending">Pending</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Amount Range</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" placeholder="Min" id="minAmount">
+                            <span class="input-group-text">to</span>
+                            <input type="number" class="form-control" placeholder="Max" id="maxAmount">
+                        </div>
+                    </div>
+                    <div class="col-12 text-end">
+                        <button type="button" class="btn btn-outline-secondary me-2" id="resetFilters">
+                            <i class="bi bi-x-circle me-1"></i>Reset
+                        </button>
+                        <button type="button" class="btn btn-primary" id="applyFilters">
+                            <i class="bi bi-check-circle me-1"></i>Apply Filters
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Cards -->
+    <div class="row mb-4">
+        <div class="col-xl-3 col-md-6 mb-3">
+            <div class="card border-0 shadow-sm h-100 bg-gradient">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted mb-1">Total Bills</h6>
+                            <h3 class="mb-0 fw-bold">@Model.Count()</h3>
+                            <small class="text-success"><i class="bi bi-graph-up me-1"></i>View All</small>
+                        </div>
+                        <div class="bg-primary bg-opacity-10 p-3 text-primary">
+                            <i class="bi bi-receipt fs-1"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-3">
+            <div class="card border-0 shadow-sm h-100 bg-gradient">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted mb-1">Total Revenue</h6>
+                            <h3 class="mb-0 fw-bold">₹@Model.Sum(b => b.TotalAmount).ToString("N0")</h3>
+                            <small class="text-success"><i class="bi bi-graph-up me-1"></i>View Report</small>
+                        </div>
+                        <div class="bg-success bg-opacity-10 p-3 text-success">
+                            <i class="bi bi-currency-rupee fs-1"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-3">
+            <div class="card border-0 shadow-sm h-100 bg-gradient">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted mb-1">Paid Bills</h6>
+                            <h3 class="mb-0 fw-bold">@Model.Count(b => b.PaymentStatus == "Paid")</h3>
+                            <small class="text-success"><i class="bi bi-check-circle me-1"></i>@(((double)Model.Count(b => b.PaymentStatus == "Paid") / Math.Max(1, Model.Count()) * 100).ToString("0"))% of total</small>
+                        </div>
+                        <div class="bg-info bg-opacity-10 p-3 text-info">
+                            <i class="bi bi-check-circle fs-1"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-3">
+            <div class="card border-0 shadow-sm h-100 bg-gradient">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted mb-1">Pending Bills</h6>
+                            <h3 class="mb-0 fw-bold">@Model.Count(b => b.PaymentStatus == "Pending")</h3>
+                            <small class="text-warning"><i class="bi bi-exclamation-circle me-1"></i>Needs attention</small>
+                        </div>
+                        <div class="bg-warning bg-opacity-10 p-3 text-warning">
+                            <i class="bi bi-hourglass-split fs-1"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-header bg-white py-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0 fw-bold"><i class="bi bi-table me-2"></i>Bills List</h5>
+                        <div class="d-flex">
+                            <div class="dropdown me-2">
+                                <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="exportDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-download me-1"></i> Export
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow-sm" aria-labelledby="exportDropdown">
+                                    <li><a class="dropdown-item" href="#" id="exportCSV"><i class="bi bi-filetype-csv me-2"></i>CSV</a></li>
+                                    <li><a class="dropdown-item" href="#" id="exportExcel"><i class="bi bi-file-earmark-excel me-2"></i>Excel</a></li>
+                                    <li><a class="dropdown-item" href="#" id="exportPDF"><i class="bi bi-file-earmark-pdf me-2"></i>PDF</a></li>
+                                </ul>
+                            </div>
+                            <button class="btn btn-sm btn-outline-secondary" id="refreshTable" data-bs-toggle="tooltip" title="Refresh Data">
+                                <i class="bi bi-arrow-clockwise"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table id="billsTable" class="table table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Bill Number</th>
+                                    <th>Date</th>
+                                    <th>Customer</th>
+                                    <th>Amount</th>
+                                    <th>Payment Method</th>
+                                    <th>Status</th>
+                                    <th width="120">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <span class="fw-medium">@item.BillNumber</span>
+                                        </td>
+                                        <td data-order="@item.BillDate.ToString("yyyy-MM-dd")">
+                                            <div class="d-flex align-items-center">
+                                                <div class="calendar-icon bg-light rounded p-1 me-2 text-primary">
+                                                    <i class="bi bi-calendar-date"></i>
+                                                </div>
+                                                <div>
+                                                    @item.BillDate.ToString("dd MMM yyyy")
+                                                    <small class="d-block text-muted">@item.BillDate.ToString("hh:mm tt")</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="avatar bg-primary bg-opacity-10 text-primary rounded-circle p-2 me-2">
+                                                    <i class="bi bi-person"></i>
+                                                </div>
+                                                <div>
+                                                    <div class="fw-medium">@item.CustomerName</div>
+                                                    <small class="text-muted">
+                                                        <i class="bi bi-telephone me-1"></i>@item.CustomerContact
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td data-order="@item.TotalAmount">
+                                            <span class="fw-bold text-dark">₹@item.TotalAmount.ToString("N2")</span>
+                                        </td>
+                                        <td>
+                                            @{
+                                                string badgeClass = item.PaymentMethod switch
+                                                {
+                                                    "Cash" => "bg-success-subtle text-success",
+                                                    "Card" => "bg-info-subtle text-info",
+                                                    "UPI" => "bg-primary-subtle text-primary",
+                                                    "Pending" => "bg-warning-subtle text-warning",
+                                                    _ => "bg-secondary-subtle text-secondary"
+                                                };
+                                                string icon = item.PaymentMethod switch
+                                                {
+                                                    "Cash" => "bi-cash",
+                                                    "Card" => "bi-credit-card",
+                                                    "UPI" => "bi-phone",
+                                                    "Pending" => "bi-hourglass-split",
+                                                    _ => "bi-question-circle"
+                                                };
+                                            }
+                                            <span class="badge @badgeClass rounded-pill">
+                                                <i class="bi @icon me-1"></i> @item.PaymentMethod
+                                            </span>
+                                        </td>
+                                        <td>
+                                            @{
+                                                string statusBadgeClass = item.PaymentStatus switch
+                                                {
+                                                    "Paid" => "bg-success",
+                                                    "Pending" => "bg-warning",
+                                                    "Failed" => "bg-danger",
+                                                    _ => "bg-secondary"
+                                                };
+                                                string statusIcon = item.PaymentStatus switch
+                                                {
+                                                    "Paid" => "bi-check-circle-fill",
+                                                    "Pending" => "bi-hourglass-split",
+                                                    "Failed" => "bi-x-circle-fill",
+                                                    _ => "bi-question-circle-fill"
+                                                };
+                                            }
+                                            <span class="badge @statusBadgeClass rounded-pill">
+                                                <i class="bi @statusIcon me-1"></i> @item.PaymentStatus
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                @if (item.PaymentMethod == "Pending")
+                                                {
+                                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary" data-bs-toggle="tooltip" title="Edit Bill">
+                                                        <i class="bi bi-pencil"></i>
+                                                    </a>
+                                                }
+                                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary" data-bs-toggle="tooltip" title="View Details">
+                                                    <i class="bi bi-eye"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="deleteModalLabel"><i class="bi bi-exclamation-triangle me-2"></i>Confirm Delete</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <div class="text-center mb-4">
+                    <div class="avatar avatar-lg bg-danger bg-opacity-10 text-danger mx-auto mb-3 rounded-circle p-3">
+                        <i class="bi bi-trash fs-1"></i>
+                    </div>
+                    <h5>Are you sure you want to delete bill <span id="billNumberToDelete" class="fw-bold"></span>?</h5>
+                    <p class="text-danger mb-0"><i class="bi bi-info-circle me-2"></i>This action cannot be undone.</p>
+                </div>
+            </div>
+            <div class="modal-footer border-top-0">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    <i class="bi bi-x-circle me-1"></i>Cancel
+                </button>
+                <form id="deleteForm" asp-action="Delete" method="post">
+                    <input type="hidden" id="billIdToDelete" name="id" />
+                    <button type="submit" class="btn btn-danger">
+                        <i class="bi bi-trash me-1"></i>Delete Bill
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- Add DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css">
+
+    <!-- Add Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Add DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Initialize tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            });
+
+            // Initialize DataTable
+            var table = $('#billsTable').DataTable({
+                responsive: true,
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                language: {
+                    search: "<i class='bi bi-search'></i> _INPUT_",
+                    searchPlaceholder: "Search bills...",
+                    lengthMenu: "_MENU_ bills per page",
+                    info: "Showing _START_ to _END_ of _TOTAL_ bills",
+                    emptyTable: "<div class='text-center p-4'><i class='bi bi-receipt text-muted fs-1'></i><p class='mt-2'>No bills found</p><a href='@Url.Action("Create")' class='btn btn-sm btn-primary'>Create your first bill</a></div>",
+                    paginate: {
+                        first: "<i class='bi bi-chevron-double-left'></i>",
+                        last: "<i class='bi bi-chevron-double-right'></i>",
+                        next: "<i class='bi bi-chevron-right'></i>",
+                        previous: "<i class='bi bi-chevron-left'></i>"
+                    }
+                },
+                dom: '<"row mb-3"<"col-md-6"l><"col-md-6"f>>rt<"row"<"col-md-6"i><"col-md-6"p>>',
+                buttons: [
+                    {
+                        extend: 'csv',
+                        text: 'CSV',
+                        className: 'btn-sm',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5]
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        text: 'Excel',
+                        className: 'btn-sm',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5]
+                        }
+                    },
+                    {
+                        extend: 'pdf',
+                        text: 'PDF',
+                        className: 'btn-sm',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5]
+                        }
+                    }
+                ]
+            });
+
+            // Custom search box styling
+            $('.dataTables_filter input').addClass('form-control');
+            $('.dataTables_length select').addClass('form-select');
+
+            // Export buttons
+            $('#exportCSV').on('click', function () {
+                table.button('.buttons-csv').trigger();
+            });
+
+            $('#exportExcel').on('click', function () {
+                table.button('.buttons-excel').trigger();
+            });
+
+            $('#exportPDF').on('click', function () {
+                table.button('.buttons-pdf').trigger();
+            });
+
+            // Refresh table
+            $('#refreshTable').on('click', function () {
+                location.reload();
+            });
+
+            // Delete bill confirmation
+            $('.delete-bill').on('click', function () {
+                var billId = $(this).data('id');
+                var billNumber = $(this).data('bill-number');
+
+                $('#billIdToDelete').val(billId);
+                $('#billNumberToDelete').text(billNumber);
+
+                var deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+                deleteModal.show();
+            });
+
+            // Filter functionality
+            $('#applyFilters').on('click', function () {
+                // Get filter values
+                var dateFilter = $('#dateFilter').val();
+                var statusFilter = $('#statusFilter').val();
+                var methodFilter = $('#methodFilter').val();
+                var minAmount = $('#minAmount').val();
+                var maxAmount = $('#maxAmount').val();
+
+                // Clear existing filters
+                table.search('').columns().search('').draw();
+
+                // Apply status filter
+                if (statusFilter !== 'all') {
+                    table.column(5).search(statusFilter).draw();
+                }
+
+                // Apply payment method filter
+                if (methodFilter !== 'all') {
+                    table.column(4).search(methodFilter).draw();
+                }
+
+                // Apply amount filter using custom range
+                if (minAmount || maxAmount) {
+                    $.fn.dataTable.ext.search.push(
+                        function (settings, data, dataIndex) {
+                            var amount = parseFloat(data[3].replace('₹', '').replace(',', '')) || 0;
+                            var min = parseFloat(minAmount) || 0;
+                            var max = parseFloat(maxAmount) || Infinity;
+
+                            return (amount >= min && amount <= max);
+                        }
+                    );
+                    table.draw();
+                    // Remove the custom filter after applying
+                    $.fn.dataTable.ext.search.pop();
+                }
+
+                // Date filtering would require more complex logic with a date range picker
+                // This is a simplified version for demo purposes
+
+                // Collapse the filter panel
+                $('#filterCollapse').collapse('hide');
+            });
+
+            // Reset filters
+            $('#resetFilters').on('click', function () {
+                $('#filterForm')[0].reset();
+                table.search('').columns().search('').draw();
+            });
+        });
+    </script>
+
+    <style>
+        /* Custom styling */
+        .bg-gradient {
+            background: linear-gradient(to right, #ffffff, #f8f9fa);
+        }
+
+        .calendar-icon, .avatar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+        }
+
+            .avatar.avatar-lg {
+                width: 64px;
+                height: 64px;
+            }
+
+        /* DataTables custom styling */
+        .dataTables_wrapper .dataTables_length,
+        .dataTables_wrapper .dataTables_filter,
+        .dataTables_wrapper .dataTables_info,
+        .dataTables_wrapper .dataTables_processing,
+        .dataTables_wrapper .dataTables_paginate {
+            color: #6c757d;
+        }
+
+            .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+            .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+                background: #f8f9fa !important;
+                border-color: #dee2e6 !important;
+                color: #212529 !important;
+            }
+
+            .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+                background: #e9ecef !important;
+                border-color: #dee2e6 !important;
+                color: #212529 !important;
+            }
+
+        table.dataTable tbody tr:hover {
+            background-color: rgba(0, 123, 255, 0.03);
+        }
+
+        .table th {
+            font-weight: 600;
+        }
+    </style>
+}

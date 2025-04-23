@@ -1,0 +1,506 @@
+@using BillGeneratingSystem.ViewModels
+@model CreateBillViewModel
+@{
+    ViewData["Title"] = "Create Bill";
+}
+
+<div class="container py-3">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2><i class="bi bi-receipt me-2"></i>Create Bill</h2>
+        <a asp-action="Index" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left me-1"></i>Back to List
+        </a>
+    </div>
+
+    <form asp-action="Create" id="billForm" class="needs-validation" novalidate>
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Customer Information Card -->
+                <div class="card border mb-4">
+                    <div class="card-header bg-light">
+                        <h5 class="mb-0"><i class="bi bi-person me-2"></i>Customer Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label asp-for="CustomerName" class="form-label">Customer Name</label>
+                                <input asp-for="CustomerName" class="form-control" placeholder="Customer Name" required />
+                                <div class="invalid-feedback">
+                                    Please provide a customer name.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="CustomerContact" class="form-label">Contact Number</label>
+                                <input asp-for="CustomerContact" class="form-control" placeholder="Contact Number" required />
+                                <div class="invalid-feedback">
+                                    Please provide a contact number.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bill Items Card -->
+                <div class="card border mb-4">
+                    <div class="card-header bg-light">
+                        <h5 class="mb-0"><i class="bi bi-cart me-2"></i>Bill Items</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover" id="itemsTable">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Unit Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="item-row">
+                                        <td>
+                                            <select name="BillItems[0].ProductId" class="form-select product-select" required>
+                                                <option value="">Select Product</option>
+                                                @foreach (var product in ViewBag.Products)
+                                                {
+                                                    <option value="@product.Id" 
+                                                            data-price="@product.Price" 
+                                                            data-stock="@product.Stock" 
+                                                            data-name="@product.Name">
+                                                        @product.Name @(product.Stock <= 0 ? "(Out of Stock)" : "")
+                                                    </option>
+                                                }
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Please select a product.
+                                            </div>
+                                            <div class="stock-warning text-danger mt-1 d-none">
+                                                <i class="bi bi-exclamation-triangle-fill"></i> This product is out of stock!
+                                            </div>
+                                            <div class="low-stock-warning text-warning mt-1 d-none">
+                                                <i class="bi bi-exclamation-triangle-fill"></i> <span class="available-stock"></span> items left in stock!
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="unit-price">0.00</span>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="BillItems[0].Quantity" class="form-control quantity" min="1" value="1" required />
+                                            <div class="invalid-feedback">
+                                                Quantity must be at least 1.
+                                            </div>
+                                            <div class="quantity-warning text-danger mt-1 d-none">
+                                                <i class="bi bi-exclamation-triangle-fill"></i> Exceeds available stock!
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="item-total">0.00</span>
+                                            <input type="hidden" name="BillItems[0].TotalPrice" class="total-price-input" />
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-outline-danger btn-sm remove-item">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="table-light">
+                                    <tr>
+                                        <td colspan="3" class="text-end"><strong>Total Amount:</strong></td>
+                                        <td><strong>₹<span id="billTotal">0.00</span></strong></td>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <button type="button" class="btn btn-primary mt-2" id="addItem">
+                            <i class="bi bi-plus-circle me-1"></i>Add Item
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <!-- Payment Method Card -->
+                <div class="card border mb-4 sticky-top" style="top: 20px;">
+                    <div class="card-header bg-light">
+                        <h5 class="mb-0"><i class="bi bi-credit-card me-2"></i>Payment Method</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label asp-for="PaymentMethod" class="form-label">Payment Method</label>
+                            <select asp-for="PaymentMethod" class="form-select" id="paymentMethod" required>
+                                <option value="">Select Payment Method</option>
+                                <option value="Cash">Cash</option>
+                                <option value="Card">Card</option>
+                                <option value="UPI">UPI</option>
+                                <option value="Pending">Pending Payment</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a payment method.
+                            </div>
+                        </div>
+
+                        <!-- Payment method specific containers -->
+                        <partial name="_CardPayment" />
+                        <partial name="_UpiPayment" />
+                        <partial name="_CashPayment" />
+                        <partial name="_PendingPayment" />
+                        
+                        <hr class="my-3">
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-check-circle me-1"></i>Create Bill
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-x-circle me-1"></i>Cancel
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <!-- Add Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Add Razorpay script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    
+    <!-- Add QR Code Generator library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    
+    <!-- Add SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Add our custom scripts -->
+    <script src="~/js/bill-form.js"></script>
+    <script src="~/js/razorpay-integration.js"></script>
+    <script src="~/js/upi-integration.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Direct event handler for UPI confirmation button
+            $(document).on('click', '#confirmUpiPayment', function() {
+                console.log("UPI payment confirmation clicked (direct handler)");
+                
+                // Add UPI payment confirmation to form data
+                $('<input>').attr({
+                    type: 'hidden',
+                    name: 'UpiPaymentConfirmed',
+                    value: 'true'
+                }).appendTo('#billForm');
+                
+                // Submit the form to create the bill
+                $('#billForm').submit();
+            });
+
+            // Stock validation for product selection
+            $(document).on('change', '.product-select', function() {
+                var $this = $(this);
+                var $row = $this.closest('.item-row');
+                var $stockWarning = $row.find('.stock-warning');
+                var $lowStockWarning = $row.find('.low-stock-warning');
+                var $quantityInput = $row.find('.quantity');
+                var $quantityWarning = $row.find('.quantity-warning');
+                
+                // Reset warnings
+                $stockWarning.addClass('d-none');
+                $lowStockWarning.addClass('d-none');
+                $quantityWarning.addClass('d-none');
+                
+                if ($this.val()) {
+                    var stockQuantity = parseInt($this.find('option:selected').data('stock'));
+                    var currentQuantity = parseInt($quantityInput.val()) || 1;
+                    
+                    // Check if product is out of stock
+                    if (stockQuantity <= 0) {
+                        $stockWarning.removeClass('d-none');
+                        $this.addClass('is-invalid');
+                        $this.attr('data-out-of-stock', 'true');
+                    } else {
+                        $this.removeClass('is-invalid');
+                        $this.removeAttr('data-out-of-stock');
+                        
+                        // Show low stock warning if stock is less than 5
+                        if (stockQuantity < 5) {
+                            $lowStockWarning.removeClass('d-none');
+                            $lowStockWarning.find('.available-stock').text(stockQuantity);
+                        }
+                        
+                        // Check if quantity exceeds stock
+                        if (currentQuantity > stockQuantity) {
+                            $quantityWarning.removeClass('d-none');
+                            $quantityInput.addClass('is-invalid');
+                            $quantityInput.attr('data-exceeds-stock', 'true');
+                        } else {
+                            $quantityInput.removeClass('is-invalid');
+                            $quantityInput.removeAttr('data-exceeds-stock');
+                        }
+                    }
+                }
+            });
+            
+            // Quantity change validation
+            $(document).on('change input', '.quantity', function() {
+                var $this = $(this);
+                var $row = $this.closest('.item-row');
+                var $productSelect = $row.find('.product-select');
+                var $quantityWarning = $row.find('.quantity-warning');
+                
+                if ($productSelect.val()) {
+                    var stockQuantity = parseInt($productSelect.find('option:selected').data('stock'));
+                    var currentQuantity = parseInt($this.val()) || 0;
+                    
+                    // Reset warning
+                    $quantityWarning.addClass('d-none');
+                    $this.removeClass('is-invalid');
+                    $this.removeAttr('data-exceeds-stock');
+                    
+                    // Check if quantity exceeds stock
+                    if (stockQuantity > 0 && currentQuantity > stockQuantity) {
+                        $quantityWarning.removeClass('d-none');
+                        $this.addClass('is-invalid');
+                        $this.attr('data-exceeds-stock', 'true');
+                    }
+                }
+            });
+            
+            // Clone row with stock validation for Add Item button
+            $('#addItem').click(function() {
+                var $lastRow = $('#itemsTable tbody tr:last');
+                var $newRow = $lastRow.clone();
+                var index = $('#itemsTable tbody tr').length;
+                
+                // Update indices in the new row
+                $newRow.find('.product-select').attr('name', 'BillItems[' + index + '].ProductId').val('');
+                $newRow.find('.quantity').attr('name', 'BillItems[' + index + '].Quantity').val(1);
+                $newRow.find('.total-price-input').attr('name', 'BillItems[' + index + '].TotalPrice');
+                
+                // Reset displays
+                $newRow.find('.unit-price').text('0.00');
+                $newRow.find('.item-total').text('0.00');
+                $newRow.find('.stock-warning').addClass('d-none');
+                $newRow.find('.low-stock-warning').addClass('d-none');
+                $newRow.find('.quantity-warning').addClass('d-none');
+                
+                // Clear all validation states and attributes
+                $newRow.find('.is-invalid').removeClass('is-invalid');
+                $newRow.find('[data-out-of-stock]').removeAttr('data-out-of-stock');
+                $newRow.find('[data-exceeds-stock]').removeAttr('data-exceeds-stock');
+                
+                // Clear the selected product
+                $newRow.find('.product-select').val('');
+                
+                // Append the new row
+                $('#itemsTable tbody').append($newRow);
+                
+                // Update the bill total
+                updateBillTotal();
+                
+                // Ensure event handlers are properly attached to the new row
+                $newRow.find('.product-select').off('change').on('change', function() {
+                    var $this = $(this);
+                    var $row = $this.closest('.item-row');
+                    var $stockWarning = $row.find('.stock-warning');
+                    var $lowStockWarning = $row.find('.low-stock-warning');
+                    var $quantityInput = $row.find('.quantity');
+                    var $quantityWarning = $row.find('.quantity-warning');
+                    
+                    // Reset warnings
+                    $stockWarning.addClass('d-none');
+                    $lowStockWarning.addClass('d-none');
+                    $quantityWarning.addClass('d-none');
+                    
+                    if ($this.val()) {
+                        var stockQuantity = parseInt($this.find('option:selected').data('stock'));
+                        var currentQuantity = parseInt($quantityInput.val()) || 1;
+                        
+                        // Check if product is out of stock
+                        if (stockQuantity <= 0) {
+                            $stockWarning.removeClass('d-none');
+                            $this.addClass('is-invalid');
+                            $this.attr('data-out-of-stock', 'true');
+                        } else {
+                            $this.removeClass('is-invalid');
+                            $this.removeAttr('data-out-of-stock');
+                            
+                            // Show low stock warning if stock is less than 5
+                            if (stockQuantity < 5) {
+                                $lowStockWarning.removeClass('d-none');
+                                $lowStockWarning.find('.available-stock').text(stockQuantity);
+                            }
+                            
+                            // Check if quantity exceeds stock
+                            if (currentQuantity > stockQuantity) {
+                                $quantityWarning.removeClass('d-none');
+                                $quantityInput.addClass('is-invalid');
+                                $quantityInput.attr('data-exceeds-stock', 'true');
+                            } else {
+                                $quantityInput.removeClass('is-invalid');
+                                $quantityInput.removeAttr('data-exceeds-stock');
+                            }
+                        }
+                    }
+                });
+            });
+
+            // Form validation with SweetAlert
+            $("#billForm").submit(function(e) {
+                var form = $(this)[0];
+                
+                if (!form.checkValidity()) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Show SweetAlert for validation errors
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Validation Error',
+                        text: 'Please fill in all required fields correctly.',
+                        confirmButtonColor: '#3085d6'
+                    });
+                }
+                
+                form.classList.add('was-validated');
+                
+                // Check if products are selected
+                if ($(".product-select").filter(function() { return !this.value; }).length > 0) {
+                    e.preventDefault();
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Missing Products',
+                        text: 'Please select all products before proceeding.',
+                        confirmButtonColor: '#3085d6'
+                    });
+                    return false;
+                }
+                
+                // Check if quantities are valid
+                if ($(".quantity").filter(function() { return !this.value || this.value < 1; }).length > 0) {
+                    e.preventDefault();
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Invalid Quantities',
+                        text: 'Please enter valid quantities (minimum 1) for all items.',
+                        confirmButtonColor: '#3085d6'
+                    });
+                    return false;
+                }
+                
+                // Check for out of stock items
+                var outOfStockItems = [];
+                $('.product-select[data-out-of-stock="true"]').each(function() {
+                    var productName = $(this).find('option:selected').data('name');
+                    outOfStockItems.push(productName);
+                });
+                
+                if (outOfStockItems.length > 0) {
+                    e.preventDefault();
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Out of Stock Items',
+                        html: 'The following items are out of stock:<br><ul><li>' + 
+                              outOfStockItems.join('</li><li>') + 
+                              '</li></ul>Please remove these items before proceeding.',
+                        confirmButtonColor: '#3085d6'
+                    });
+                    return false;
+                }
+                
+                // Check for quantities exceeding stock
+                var exceedingStockItems = [];
+                $('.quantity[data-exceeds-stock="true"]').each(function() {
+                    var $row = $(this).closest('.item-row');
+                    var productName = $row.find('.product-select option:selected').data('name');
+                    var stockQuantity = $row.find('.product-select option:selected').data('stock');
+                    var requestedQuantity = $(this).val();
+                    
+                    exceedingStockItems.push(productName + ' (Requested: ' + requestedQuantity + ', Available: ' + stockQuantity + ')');
+                });
+                
+                if (exceedingStockItems.length > 0) {
+                    e.preventDefault();
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Insufficient Stock',
+                        html: 'The following items have insufficient stock:<br><ul><li>' + 
+                              exceedingStockItems.join('</li><li>') + 
+                              '</li></ul>Please adjust quantities before proceeding.',
+                        confirmButtonColor: '#3085d6'
+                    });
+                    return false;
+                }
+            });
+            
+            // Payment method change handler
+            $('#paymentMethod').change(function() {
+                // Hide all payment containers
+                $('.payment-method-container').addClass('d-none');
+                
+                // Show the selected payment container
+                var method = $(this).val();
+                if (method === 'Card') {
+                    $('#card-payment-container').removeClass('d-none');
+                } else if (method === 'UPI') {
+                    $('#upi-payment-container').removeClass('d-none');
+                } else if (method === 'Cash') {
+                    $('#cash-payment-container').removeClass('d-none');
+                } else if (method === 'Pending') {
+                    $('#pending-payment-container').removeClass('d-none');
+                }
+                
+                // Update all amount displays
+                var billTotal = $('#billTotal').text();
+                $('#cashAmountDisplay').text(billTotal);
+                $('#qrAmountDisplay').text(billTotal);
+                $('#pendingAmountDisplay').text(billTotal);
+            });
+            
+            // Update pending amount display when bill total changes
+            function updateAllAmountDisplays() {
+                var billTotal = $('#billTotal').text();
+                $('#cashAmountDisplay').text(billTotal);
+                $('#qrAmountDisplay').text(billTotal);
+                $('#pendingAmountDisplay').text(billTotal);
+            }
+            
+            // Hook into existing bill total update function
+            var originalUpdateBillTotal = window.updateBillTotal || function() {};
+            window.updateBillTotal = function() {
+                originalUpdateBillTotal.apply(this, arguments);
+                updateAllAmountDisplays();
+            };
+            
+            // Initial update
+            updateAllAmountDisplays();
+            
+            // Trigger initial stock validation for any pre-selected products
+            $('.product-select').trigger('change');
+        });
+    </script>
+    
+    <style>
+        .stock-warning, .quantity-warning, .low-stock-warning {
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+        
+        .low-stock-warning {
+            color: #ffc107;
+        }
+        
+        /* Highlight out of stock items in the dropdown */
+        select.product-select option[data-stock="0"] {
+            color: #dc3545;
+            font-style: italic;
+        }
+    </style>
+}

@@ -1,0 +1,363 @@
+@using BillGeneratingSystem.ViewModels
+@model EditBillViewModel
+@{
+    ViewData["Title"] = "Edit Bill";
+}
+
+<div class="container py-3">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2><i class="bi bi-pencil me-2"></i>Edit Bill</h2>
+        <a asp-action="Index" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left me-1"></i>Back to List
+        </a>
+    </div>
+
+    <form asp-action="Edit" id="billForm" class="needs-validation" novalidate>
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="BillNumber" />
+        <input type="hidden" asp-for="BillDate" />
+        <input type="hidden" asp-for="TotalAmount" id="hiddenTotalAmount" />
+
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Customer Information Card -->
+                <div class="card border mb-4">
+                    <div class="card-header bg-light">
+                        <h5 class="mb-0"><i class="bi bi-person me-2"></i>Customer Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label asp-for="CustomerName" class="form-label">Customer Name</label>
+                                <input asp-for="CustomerName" class="form-control" placeholder="Customer Name" required />
+                                <span asp-validation-for="CustomerName" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="CustomerContact" class="form-label">Contact Number</label>
+                                <input asp-for="CustomerContact" class="form-control" placeholder="Contact Number" required />
+                                <span asp-validation-for="CustomerContact" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bill Details Card -->
+                <div class="card border mb-4">
+                    <div class="card-header bg-light">
+                        <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i>Bill Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label asp-for="PaymentMethod" class="form-label">Payment Method</label>
+                                <select asp-for="PaymentMethod" class="form-select" required>
+                                    <option value="">Select Payment Method</option>
+                                    <option value="Cash">Cash</option>
+                                    <option value="Card">Card</option>
+                                    <option value="UPI">UPI</option>
+                                    <option value="Pending">Pending Payment</option>
+                                </select>
+                                <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="PaymentStatus" class="form-label">Payment Status</label>
+                                <select asp-for="PaymentStatus" class="form-select" required>
+                                    <option value="">Select Payment Status</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Paid">Paid</option>
+                                    <option value="Failed">Failed</option>
+                                </select>
+                                <span asp-validation-for="PaymentStatus" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="alert alert-info mt-3">
+                            <div class="d-flex">
+                                <div class="me-2">
+                                    <i class="bi bi-info-circle"></i>
+                                </div>
+                                <div>
+                                    <p class="mb-0">Bill Number: <strong>@Model.BillNumber</strong> | Date: <strong>@Model.BillDate.ToString("dd MMM yyyy")</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bill Items Card -->
+                <div class="card border mb-4">
+                    <div class="card-header bg-light">
+                        <h5 class="mb-0"><i class="bi bi-cart me-2"></i>Bill Items</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover" id="itemsTable">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Unit Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (var i = 0; i < Model.BillItems.Count; i++)
+                                    {
+                                        <tr class="item-row">
+                                            <td>
+                                                <select name="BillItems[@i].ProductId" class="form-select product-select" required>
+                                                    <option value="">Select Product</option>
+                                                    @foreach (var product in ViewBag.Products)
+                                                    {
+                                                        <option value="@product.Id" 
+                                                                data-price="@product.Price" 
+                                                                selected="@(product.Id == Model.BillItems[i].ProductId)">
+                                                            @product.Name
+                                                        </option>
+                                                    }
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <span class="unit-price">@Model.BillItems[i].UnitPrice.ToString("F2")</span>
+                                            </td>
+                                            <td>
+                                                <input type="number" name="BillItems[@i].Quantity" 
+                                                    class="form-control quantity" min="1" 
+                                                    value="@Model.BillItems[i].Quantity" required />
+                                            </td>
+                                            <td>
+                                                <span class="item-total">@Model.BillItems[i].TotalPrice.ToString("F2")</span>
+                                                <input type="hidden" name="BillItems[@i].TotalPrice" 
+                                                    class="total-price-input" value="@Model.BillItems[i].TotalPrice" />
+                                                <input type="hidden" name="BillItems[@i].UnitPrice" value="@Model.BillItems[i].UnitPrice" />
+                                                <input type="hidden" name="BillItems[@i].Id" value="@Model.BillItems[i].ProductId" />
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-outline-danger btn-sm remove-item">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot class="table-light">
+                                    <tr>
+                                        <td colspan="3" class="text-end"><strong>Total Amount:</strong></td>
+                                        <td><strong>₹<span id="billTotal">@Model.TotalAmount.ToString("F2")</span></strong></td>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <button type="button" class="btn btn-primary mt-2" id="addItem">
+                            <i class="bi bi-plus-circle me-1"></i>Add Item
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <!-- Summary Card -->
+                <div class="card border mb-4 sticky-top" style="top: 20px;">
+                    <div class="card-header bg-light">
+                        <h5 class="mb-0"><i class="bi bi-clipboard-check me-2"></i>Bill Summary</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="summary-item d-flex justify-content-between mb-2">
+                            <span>Bill Number:</span>
+                            <span class="fw-bold">@Model.BillNumber</span>
+                        </div>
+                        <div class="summary-item d-flex justify-content-between mb-2">
+                            <span>Date:</span>
+                            <span class="fw-bold">@Model.BillDate.ToString("dd MMM yyyy")</span>
+                        </div>
+                        <div class="summary-item d-flex justify-content-between mb-2">
+                            <span>Customer:</span>
+                            <span class="fw-bold">@Model.CustomerName</span>
+                        </div>
+                        <div class="summary-item d-flex justify-content-between mb-2">
+                            <span>Total Items:</span>
+                            <span class="fw-bold"><span id="totalItems">@Model.BillItems.Count</span></span>
+                        </div>
+                        <div class="summary-item d-flex justify-content-between mb-2">
+                            <span>Total Amount:</span>
+                            <span class="fw-bold text-primary">₹<span id="summaryTotal">@Model.TotalAmount.ToString("F2")</span></span>
+                        </div>
+                        
+                        <hr class="my-3">
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-check-circle me-1"></i>Save Changes
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-x-circle me-1"></i>Cancel
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <!-- Add Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Add SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script>
+        let rowIndex = @(Model.BillItems.Count);
+
+        function updateItemTotal(row) {
+            var quantity = parseInt(row.find('.quantity').val()) || 0;
+            var unitPrice = parseFloat(row.find('.unit-price').text()) || 0;
+            var total = quantity * unitPrice;
+            row.find('.item-total').text(total.toFixed(2));
+            row.find('.total-price-input').val(total.toFixed(2));
+            updateBillTotal();
+        }
+
+        function updateBillTotal() {
+            var billTotal = 0;
+            $('.item-total').each(function() {
+                billTotal += parseFloat($(this).text()) || 0;
+            });
+            $('#billTotal').text(billTotal.toFixed(2));
+            $('#summaryTotal').text(billTotal.toFixed(2));
+            $('#hiddenTotalAmount').val(billTotal.toFixed(2));
+            $('#totalItems').text($('.item-row').length);
+        }
+
+        function updateRowIndexes() {
+            $('.item-row').each(function(index) {
+                $(this).find('[name^="BillItems["]').each(function() {
+                    var name = $(this).attr('name');
+                    var newName = name.replace(/\[\d+\]/, '[' + index + ']');
+                    $(this).attr('name', newName);
+                });
+            });
+        }
+
+        $(document).ready(function () {
+            // Initial setup
+            updateBillTotal();
+
+            $(document).on('change', '.product-select', function() {
+                var row = $(this).closest('tr');
+                var price = parseFloat($(this).find(':selected').data('price')) || 0;
+                row.find('.unit-price').text(price.toFixed(2));
+                updateItemTotal(row);
+            });
+
+            $(document).on('change', '.quantity', function() {
+                var row = $(this).closest('tr');
+                updateItemTotal(row);
+            });
+
+            $("#addItem").click(function () {
+                var newRow = $(`
+                    <tr class="item-row">
+                        <td>
+                            <select name="BillItems[${rowIndex}].ProductId" class="form-select product-select" required>
+                                <option value="">Select Product</option>
+                                @foreach (var product in ViewBag.Products)
+                                {
+                                    <option value="@product.Id" data-price="@product.Price">@product.Name</option>
+                                }
+                            </select>
+                            <input type="hidden" name="BillItems[${rowIndex}].Id" value="0" />
+                        </td>
+                        <td>
+                            <span class="unit-price">0.00</span>
+                        </td>
+                        <td>
+                            <input type="number" name="BillItems[${rowIndex}].Quantity" class="form-control quantity" min="1" value="1" required />
+                        </td>
+                        <td>
+                            <span class="item-total">0.00</span>
+                            <input type="hidden" name="BillItems[${rowIndex}].TotalPrice" class="total-price-input" value="0.00" />
+                            <input type="hidden" name="BillItems[${rowIndex}].UnitPrice" value="0.00" />
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-outline-danger btn-sm remove-item">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `);
+
+                $("#itemsTable tbody").append(newRow);
+                rowIndex++;
+                updateItemTotal(newRow);
+            });
+
+            $(document).on("click", ".remove-item", function () {
+                if ($(".item-row").length > 1) {
+                    $(this).closest("tr").remove();
+                    updateRowIndexes();
+                    updateBillTotal();
+                } else {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Cannot Remove',
+                        text: 'At least one item must be in the bill',
+                        confirmButtonColor: '#3085d6'
+                    });
+                }
+            });
+
+            $("#billForm").submit(function(e) {
+                // Update all unit prices before submitting
+                $('.item-row').each(function() {
+                    var row = $(this);
+                    var unitPrice = parseFloat(row.find('.unit-price').text()) || 0;
+                    row.find('input[name$=".UnitPrice"]').val(unitPrice);
+                });
+
+                if ($(".item-row").length === 0) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'No Items',
+                        text: 'Please add at least one item to the bill',
+                        confirmButtonColor: '#3085d6'
+                    });
+                    e.preventDefault();
+                    return false;
+                }
+
+                var isValid = true;
+                if ($(".product-select").filter(function() { return !this.value; }).length > 0) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Missing Products',
+                        text: 'Please select all products',
+                        confirmButtonColor: '#3085d6'
+                    });
+                    isValid = false;
+                }
+                if ($(".quantity").filter(function() { return !this.value || this.value < 1; }).length > 0) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Invalid Quantities',
+                        text: 'Please enter valid quantities (minimum 1) for all items',
+                        confirmButtonColor: '#3085d6'
+                    });
+                    isValid = false;
+                }
+
+                if (!isValid) {
+                    e.preventDefault();
+                    return false;
+                }
+
+                // Final update of indexes before submit
+                updateRowIndexes();
+            });
+        });
+    </script>
+}

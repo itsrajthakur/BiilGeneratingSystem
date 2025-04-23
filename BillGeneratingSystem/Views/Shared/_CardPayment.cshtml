@@ -1,0 +1,32 @@
+@{
+    var razorpayKey = "rzp_test_J3Oq31tdqQtFBT";
+}
+
+<div id="card-payment-container" class="payment-method-container d-none">
+    <div class="card shadow-sm mb-4 border-primary">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0"><i class="bi bi-credit-card me-2"></i>Card Payment</h5>
+        </div>
+        <div class="card-body">
+            <div class="text-center mb-4">
+                <img src="https://cdn.razorpay.com/static/assets/logo/payment.svg" alt="Secure Payment" class="img-fluid" style="max-height: 80px;">
+            </div>
+            <p class="text-muted text-center mb-4">You'll be redirected to Razorpay's secure payment gateway to complete your transaction.</p>
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary btn-lg px-4 rounded-pill" id="razorpayBtn">
+                    <i class="bi bi-credit-card me-2"></i>Proceed to Payment
+                </button>
+            </div>
+            <div class="text-center mt-3">
+                <small class="text-muted">
+                    <i class="bi bi-shield-lock me-1"></i>Your payment information is secure
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // This will be moved to a separate JS file later
+    var razorpayKey = "@razorpayKey";
+</script>
