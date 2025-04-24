@@ -1,18 +1,25 @@
 <div id="upi-payment-container" class="payment-method-container d-none">
     <div class="card shadow-sm mb-4 border-success">
-        <div class="card-header bg-success text-white">
-            <h5 class="mb-0"><i class="bi bi-phone me-2"></i>UPI Payment</h5>
+        <div class="card-header bg-success text-white d-flex align-items-center">
+            <i class="bi bi-phone me-2 fs-4"></i>
+            <h5 class="mb-0">UPI Payment</h5>
         </div>
-        <div class="card-body text-center">
-            <p class="text-muted">Scan the QR code with any UPI app to make payment</p>
-            <button type="button" class="btn btn-success btn-lg mb-3 px-4 rounded-pill" id="generateQrBtn">
+        <div class="card-body text-center p-4">
+            <div class="payment-intro mb-3">
+                <i class="bi bi-qr-code text-success mb-3" style="font-size: 3rem;"></i>
+                <p class="text-muted">Scan the QR code with any UPI app to make payment</p>
+            </div>
+            
+            <button type="button" class="btn btn-success btn-lg mb-4 px-4 rounded-pill shadow-sm" id="generateQrBtn">
                 <i class="bi bi-qr-code me-2"></i>Generate QR Code
             </button>
+            
             <div id="qrcode-container" class="d-none">
-                <div class="qr-wrapper p-3 bg-light rounded shadow-sm mb-3">
-                    <div id="qrcode" class="mx-auto"></div>
+                <div class="qr-wrapper p-4 bg-light rounded shadow-sm mb-4">
+                    <div id="qrcode" class="mx-auto d-flex justify-content-center"></div>
                 </div>
-                <div class="payment-details p-3 bg-light rounded mb-3">
+                
+                <div class="payment-details p-3 bg-light rounded mb-4">
                     <div class="d-flex justify-content-between mb-2">
                         <span class="text-muted">Amount:</span>
                         <span class="fw-bold">₹<span id="qrAmountDisplay">0.00</span></span>
@@ -22,10 +29,18 @@
                         <span class="fw-bold"><span id="upiIdDisplay">9302318373-2@ybl</span></span>
                     </div>
                 </div>
-                <button type="button" class="btn btn-success btn-lg px-4 rounded-pill" id="confirmUpiPayment">
-                    <i class="bi bi-check-circle me-2"></i>Confirm Payment
-                </button>
+                
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-success btn-lg px-4 rounded-pill shadow-sm" id="confirmUpiPayment">
+                        <i class="bi bi-check-circle me-2"></i>Confirm Payment
+                    </button>
+                </div>
             </div>
+        </div>
+        <div class="card-footer bg-light border-top-0 text-center">
+            <small class="text-muted">
+                <i class="bi bi-shield-check me-1"></i>Secure and instant payment via UPI
+            </small>
         </div>
     </div>
 </div>

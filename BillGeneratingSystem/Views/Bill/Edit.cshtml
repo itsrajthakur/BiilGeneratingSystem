@@ -110,12 +110,20 @@
                                                     @foreach (var product in ViewBag.Products)
                                                     {
                                                         <option value="@product.Id" 
-                                                                data-price="@product.Price" 
+                                                                data-price="@product.Price"
+                                                                data-stock="@product.Stock"
+                                                                data-name="@product.Name"
                                                                 selected="@(product.Id == Model.BillItems[i].ProductId)">
-                                                            @product.Name
+                                                            @product.Name @(product.Stock <= 0 ? "(Out of Stock)" : "")
                                                         </option>
                                                     }
                                                 </select>
+                                                <div class="stock-warning text-danger mt-1 d-none">
+                                                    <i class="bi bi-exclamation-triangle-fill"></i> This product is out of stock!
+                                                </div>
+                                                <div class="low-stock-warning text-warning mt-1 d-none">
+                                                    <i class="bi bi-exclamation-triangle-fill"></i> <span class="available-stock"></span> items left in stock!
+                                                </div>
                                             </td>
                                             <td>
                                                 <span class="unit-price">@Model.BillItems[i].UnitPrice.ToString("F2")</span>
@@ -124,6 +132,9 @@
                                                 <input type="number" name="BillItems[@i].Quantity" 
                                                     class="form-control quantity" min="1" 
                                                     value="@Model.BillItems[i].Quantity" required />
+                                                <div class="quantity-warning text-danger mt-1 d-none">
+                                                    <i class="bi bi-exclamation-triangle-fill"></i> Exceeds available stock!
+                                                </div>
                                             </td>
                                             <td>
                                                 <span class="item-total">@Model.BillItems[i].TotalPrice.ToString("F2")</span>
@@ -243,19 +254,64 @@
             });
         }
 
+        function checkStockAvailability(row) {
+            var $select = row.find('.product-select');
+            var $stockWarning = row.find('.stock-warning');
+            var $lowStockWarning = row.find('.low-stock-warning');
+            var $quantityInput = row.find('.quantity');
+            var $quantityWarning = row.find('.quantity-warning');
+            
+            // Reset warnings
+            $stockWarning.addClass('d-none');
+            $lowStockWarning.addClass('d-none');
+            $quantityWarning.addClass('d-none');
+            
+            if ($select.val()) {
+                var stock = parseInt($select.find(':selected').data('stock')) || 0;
+                var quantity = parseInt($quantityInput.val()) || 0;
+                var productName = $select.find(':selected').data('name');
+                
+                // Check stock availability
+                if (stock <= 0) {
+                    $stockWarning.removeClass('d-none');
+                    $quantityInput.addClass('is-invalid');
+                    return false;
+                } else if (stock < quantity) {
+                    $quantityWarning.removeClass('d-none');
+                    $quantityInput.addClass('is-invalid');
+                    return false;
+                } else if (stock <= 5) {
+                    $lowStockWarning.removeClass('d-none');
+                    $lowStockWarning.find('.available-stock').text(stock);
+                }
+                
+                $quantityInput.removeClass('is-invalid');
+                return true;
+            }
+            
+            return true;
+        }
+
         $(document).ready(function () {
             // Initial setup
             updateBillTotal();
+            
+            // Check stock for initial items
+            $('.item-row').each(function() {
+                checkStockAvailability($(this));
+            });
 
             $(document).on('change', '.product-select', function() {
                 var row = $(this).closest('tr');
                 var price = parseFloat($(this).find(':selected').data('price')) || 0;
                 row.find('.unit-price').text(price.toFixed(2));
+                checkStockAvailability(row);
                 updateItemTotal(row);
             });
 
             $(document).on('change', '.quantity', function() {
                 var row = $(this).closest('tr');
+                checkStockAvailability(row);
                 updateItemTotal(row);
             });
 
@@ -267,16 +323,30 @@
                                 <option value="">Select Product</option>
                                 @foreach (var product in ViewBag.Products)
                                 {
-                                    <option value="@product.Id" data-price="@product.Price">@product.Name</option>
+                                    <option value="@product.Id" 
+                                           data-price="@product.Price" 
+                                           data-stock="@product.Stock" 
+                                           data-name="@product.Name">
+                                        @product.Name @(product.Stock <= 0 ? "(Out of Stock)" : "")
+                                    </option>
                                 }
                             </select>
                             <input type="hidden" name="BillItems[${rowIndex}].Id" value="0" />
+                            <div class="stock-warning text-danger mt-1 d-none">
+                                <i class="bi bi-exclamation-triangle-fill"></i> This product is out of stock!
+                            </div>
+                            <div class="low-stock-warning text-warning mt-1 d-none">
+                                <i class="bi bi-exclamation-triangle-fill"></i> <span class="available-stock"></span> items left in stock!
+                            </div>
                         </td>
                         <td>
                             <span class="unit-price">0.00</span>
                         </td>
                         <td>
                             <input type="number" name="BillItems[${rowIndex}].Quantity" class="form-control quantity" min="1" value="1" required />
+                            <div class="quantity-warning text-danger mt-1 d-none">
+                                <i class="bi bi-exclamation-triangle-fill"></i> Exceeds available stock!
+                            </div>
                         </td>
                         <td>
                             <span class="item-total">0.00</span>
@@ -312,6 +382,25 @@
             });
 
             $("#billForm").submit(function(e) {
+                // Check stock availability for all items
+                var stockValid = true;
+                $('.item-row').each(function() {
+                    if (!checkStockAvailability($(this))) {
+                        stockValid = false;
+                    }
+                });
+                
+                if (!stockValid) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Stock Issue',
+                        text: 'Some products have stock availability issues. Please review your items.',
+                        confirmButtonColor: '#3085d6'
+                    });
+                    e.preventDefault();
+                    return false;
+                }
+                
                 // Update all unit prices before submitting
                 $('.item-row').each(function() {
                     var row = $(this);

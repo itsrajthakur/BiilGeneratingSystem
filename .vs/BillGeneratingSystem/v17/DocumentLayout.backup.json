@@ -7,6 +7,62 @@
       "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\views\\bill\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\wwwroot\\js\\bill-form.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\wwwroot\\js\\bill-form.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\views\\shared\\_cardpayment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\views\\shared\\_cardpayment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\views\\bill\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\views\\bill\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\views\\shared\\_pendingpayment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\views\\shared\\_pendingpayment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\wwwroot\\js\\upi-integration.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\wwwroot\\js\\upi-integration.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\views\\shared\\_upipayment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\views\\shared\\_upipayment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\views\\shared\\_cashpayment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\views\\shared\\_cashpayment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\views\\admin\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\views\\admin\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\controllers\\billcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\controllers\\billcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -27,20 +83,12 @@
       "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\wwwroot\\js\\razorpay-integration.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\wwwroot\\js\\upi-integration.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\wwwroot\\js\\upi-integration.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\views\\bill\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\views\\bill\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -53,18 +101,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\views\\shared\\_upipayment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\views\\shared\\_upipayment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\wwwroot\\js\\bill-form.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\wwwroot\\js\\bill-form.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\views\\shared\\_cashpayment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|solutionrelative:billgeneratingsystem\\views\\shared\\_cashpayment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A8349960-1211-439A-B88F-7409D5454640}|BillGeneratingSystem\\BillGeneratingSystem.csproj|c:\\users\\raj.thakur\\downloads\\billgenerate\\billgenerate\\billgeneratingsystem\\billgeneratingsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -117,7 +153,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 167,
-          "SelectedChildIndex": 52,
+          "SelectedChildIndex": 40,
           "Children": [
             {
               "$type": "Bookmark",
@@ -281,59 +317,176 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "BillGeneratingSystem\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAB/AAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Bill\\Create.cshtml",
+              "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Bill\\Create.cshtml",
+              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Bill\\Create.cshtml",
+              "RelativeToolTip": "BillGeneratingSystem\\Views\\Bill\\Create.cshtml",
+              "ViewState": "AgIAAMEAAAAAAAAAAAAAAOUAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-23T13:19:14.068Z",
+              "WhenOpened": "2025-04-24T06:59:57.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "bootstrap.min.css.map",
+              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+              "RelativeDocumentMoniker": "BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+              "RelativeToolTip": "BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAADMLQIAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-24T06:55:21.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "bootstrap.min.css",
+              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+              "RelativeDocumentMoniker": "BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+              "RelativeToolTip": "BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAUAAABRpAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-24T06:55:17.407Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "_Layout.cshtml.css",
-              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Shared\\_Layout.cshtml.css",
-              "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Shared\\_Layout.cshtml.css",
-              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Shared\\_Layout.cshtml.css",
-              "RelativeToolTip": "BillGeneratingSystem\\Views\\Shared\\_Layout.cshtml.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-04-23T13:14:56.96Z",
+              "Title": "bootstrap.css.map",
+              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+              "RelativeDocumentMoniker": "BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+              "RelativeToolTip": "BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAABaOwIAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-24T06:55:12.807Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
+              "Title": "bootstrap.css",
+              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "RelativeDocumentMoniker": "BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "RelativeToolTip": "BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "ViewState": "AgIAAPkKAAAAAAAAAIAwwBcLAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-24T06:53:41.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_CardPayment.cshtml",
+              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Shared\\_CardPayment.cshtml",
+              "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Shared\\_CardPayment.cshtml",
+              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Shared\\_CardPayment.cshtml",
+              "RelativeToolTip": "BillGeneratingSystem\\Views\\Shared\\_CardPayment.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-24T05:35:08.741Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "bootstrap.rtl.css",
+              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+              "RelativeDocumentMoniker": "BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+              "RelativeToolTip": "BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+              "ViewState": "AgIAAMsKAAAAAAAAAAAAAN0KAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-24T06:55:25.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_PendingPayment.cshtml",
+              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Shared\\_PendingPayment.cshtml",
+              "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Shared\\_PendingPayment.cshtml",
+              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Shared\\_PendingPayment.cshtml",
+              "RelativeToolTip": "BillGeneratingSystem\\Views\\Shared\\_PendingPayment.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-24T05:53:40.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_UpiPayment.cshtml",
+              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Shared\\_UpiPayment.cshtml",
+              "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Shared\\_UpiPayment.cshtml",
+              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Shared\\_UpiPayment.cshtml",
+              "RelativeToolTip": "BillGeneratingSystem\\Views\\Shared\\_UpiPayment.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-23T08:42:16.331Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "_CashPayment.cshtml",
+              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Shared\\_CashPayment.cshtml",
+              "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Shared\\_CashPayment.cshtml",
+              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Shared\\_CashPayment.cshtml",
+              "RelativeToolTip": "BillGeneratingSystem\\Views\\Shared\\_CashPayment.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAByAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-23T08:41:22.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Bill\\Details.cshtml",
               "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Bill\\Details.cshtml",
               "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Bill\\Details.cshtml",
               "RelativeToolTip": "BillGeneratingSystem\\Views\\Bill\\Details.cshtml",
-              "ViewState": "AgIAAFEAAAAAAAAAAADwv3EAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAA4BAAAAAAAAAAAcwBoBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-23T12:28:34.544Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Bill\\Index.cshtml",
-              "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Bill\\Index.cshtml",
-              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Bill\\Index.cshtml",
-              "RelativeToolTip": "BillGeneratingSystem\\Views\\Bill\\Index.cshtml",
-              "ViewState": "AgIAALwAAAAAAAAAAAAAANYAAABQAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Product\\Create.cshtml",
+              "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Product\\Create.cshtml",
+              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Product\\Create.cshtml",
+              "RelativeToolTip": "BillGeneratingSystem\\Views\\Product\\Create.cshtml",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAAABsAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-23T12:13:53.032Z",
+              "WhenOpened": "2025-04-24T05:57:44.642Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 11,
+              "Title": "upi-integration.js",
+              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\js\\upi-integration.js",
+              "RelativeDocumentMoniker": "BillGeneratingSystem\\wwwroot\\js\\upi-integration.js",
+              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\js\\upi-integration.js",
+              "RelativeToolTip": "BillGeneratingSystem\\wwwroot\\js\\upi-integration.js",
+              "ViewState": "AgIAAAEAAAAAAAAAAIA6wBoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-04-23T08:44:17.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "BillController.cs",
               "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Controllers\\BillController.cs",
               "RelativeDocumentMoniker": "BillGeneratingSystem\\Controllers\\BillController.cs",
@@ -346,20 +499,72 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 16,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Bill\\Index.cshtml",
+              "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Bill\\Index.cshtml",
+              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Bill\\Index.cshtml",
+              "RelativeToolTip": "BillGeneratingSystem\\Views\\Bill\\Index.cshtml",
+              "ViewState": "AgIAALkAAAAAAAAAAIBJwNYAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-23T12:13:53.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "_Layout.cshtml.css",
+              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Shared\\_Layout.cshtml.css",
+              "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Shared\\_Layout.cshtml.css",
+              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Shared\\_Layout.cshtml.css",
+              "RelativeToolTip": "BillGeneratingSystem\\Views\\Shared\\_Layout.cshtml.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-23T13:14:56.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "BillGeneratingSystem\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAB/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-23T13:19:14.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AccessDenied.cshtml",
+              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Admin\\AccessDenied.cshtml",
+              "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Admin\\AccessDenied.cshtml",
+              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Admin\\AccessDenied.cshtml",
+              "RelativeToolTip": "BillGeneratingSystem\\Views\\Admin\\AccessDenied.cshtml",
+              "ViewState": "AgIAABAAAAAAAAAAAAAwwC4AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-24T04:54:09.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "BillGeneratingSystem\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAAA4AAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAIBJwA4AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-23T08:42:15.518Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 22,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Product\\Index.cshtml",
               "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Product\\Index.cshtml",
@@ -372,7 +577,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 24,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Program.cs",
               "RelativeDocumentMoniker": "BillGeneratingSystem\\Program.cs",
@@ -385,72 +590,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "bill-form.js",
-              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\js\\bill-form.js",
-              "RelativeDocumentMoniker": "BillGeneratingSystem\\wwwroot\\js\\bill-form.js",
-              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\js\\bill-form.js",
-              "RelativeToolTip": "BillGeneratingSystem\\wwwroot\\js\\bill-form.js",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAkwFcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-23T08:44:12.118Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "_UpiPayment.cshtml",
-              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Shared\\_UpiPayment.cshtml",
-              "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Shared\\_UpiPayment.cshtml",
-              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Shared\\_UpiPayment.cshtml",
-              "RelativeToolTip": "BillGeneratingSystem\\Views\\Shared\\_UpiPayment.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-23T08:42:16.331Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "upi-integration.js",
-              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\js\\upi-integration.js",
-              "RelativeDocumentMoniker": "BillGeneratingSystem\\wwwroot\\js\\upi-integration.js",
-              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\js\\upi-integration.js",
-              "RelativeToolTip": "BillGeneratingSystem\\wwwroot\\js\\upi-integration.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-23T08:44:17.618Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 23,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Bill\\Edit.cshtml",
               "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Bill\\Edit.cshtml",
               "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Bill\\Edit.cshtml",
               "RelativeToolTip": "BillGeneratingSystem\\Views\\Bill\\Edit.cshtml",
-              "ViewState": "AgIAAGoBAAAAAAAAAAAAAGoBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGcBAAAAAAAAAIBJwGoBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-22T11:19:17.173Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Bill\\Create.cshtml",
-              "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Bill\\Create.cshtml",
-              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Bill\\Create.cshtml",
-              "RelativeToolTip": "BillGeneratingSystem\\Views\\Bill\\Create.cshtml",
-              "ViewState": "AgIAAEgAAAAAAAAAAIAwwFgAAACZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-23T07:10:05.379Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 19,
               "Title": "razorpay-integration.js",
               "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\js\\razorpay-integration.js",
               "RelativeDocumentMoniker": "BillGeneratingSystem\\wwwroot\\js\\razorpay-integration.js",
@@ -463,7 +616,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 20,
               "Title": "bootstrap-grid.css",
               "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
               "RelativeDocumentMoniker": "BillGeneratingSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
@@ -476,20 +629,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "_CashPayment.cshtml",
-              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Shared\\_CashPayment.cshtml",
-              "RelativeDocumentMoniker": "BillGeneratingSystem\\Views\\Shared\\_CashPayment.cshtml",
-              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Views\\Shared\\_CashPayment.cshtml",
-              "RelativeToolTip": "BillGeneratingSystem\\Views\\Shared\\_CashPayment.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-23T08:41:22.667Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 31,
               "Title": "RazorView.cs",
               "DocumentMoniker": "C:\\Users\\abhimanyu.rajput\\AppData\\Local\\Temp\\.vsdbgsrc\\13bf4daee0917368e00f165ef41e144925d26cc2bd515137743d73786f6b0609\\RazorView.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\abhimanyu.rajput\\AppData\\Local\\Temp\\.vsdbgsrc\\13bf4daee0917368e00f165ef41e144925d26cc2bd515137743d73786f6b0609\\RazorView.cs",
@@ -501,7 +641,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 34,
               "Title": "20250422101019_intial migration.Designer.cs",
               "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Migrations\\20250422101019_intial migration.Designer.cs",
               "RelativeDocumentMoniker": "BillGeneratingSystem\\Migrations\\20250422101019_intial migration.Designer.cs",
@@ -514,7 +654,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 25,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\appsettings.json",
               "RelativeDocumentMoniker": "BillGeneratingSystem\\appsettings.json",
@@ -527,7 +667,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 30,
               "Title": "ViewExecutor.cs",
               "DocumentMoniker": "C:\\Users\\abhimanyu.rajput\\AppData\\Local\\Temp\\.vsdbgsrc\\4a05b8e6420357241794c90bac01120bf8f4f2f05257fd742c4e69a3965515f0\\ViewExecutor.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\abhimanyu.rajput\\AppData\\Local\\Temp\\.vsdbgsrc\\4a05b8e6420357241794c90bac01120bf8f4f2f05257fd742c4e69a3965515f0\\ViewExecutor.cs",
@@ -539,7 +679,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 28,
               "Title": "ViewResult.cs",
               "DocumentMoniker": "C:\\Users\\abhimanyu.rajput\\AppData\\Local\\Temp\\.vsdbgsrc\\c19e97453b12fdf7cb229a32d4206b5ecbc83ec074c9e9298d066b38372e86d7\\ViewResult.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\abhimanyu.rajput\\AppData\\Local\\Temp\\.vsdbgsrc\\c19e97453b12fdf7cb229a32d4206b5ecbc83ec074c9e9298d066b38372e86d7\\ViewResult.cs",
@@ -551,7 +691,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 32,
               "Title": "ApplicationDbContextModelSnapshot.cs",
               "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Migrations\\ApplicationDbContextModelSnapshot.cs",
               "RelativeDocumentMoniker": "BillGeneratingSystem\\Migrations\\ApplicationDbContextModelSnapshot.cs",
@@ -564,7 +704,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 33,
               "Title": "20250422101019_intial migration.cs",
               "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Migrations\\20250422101019_intial migration.cs",
               "RelativeDocumentMoniker": "BillGeneratingSystem\\Migrations\\20250422101019_intial migration.cs",
@@ -577,7 +717,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 35,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "BillGeneratingSystem\\Controllers\\ProductController.cs",
@@ -590,7 +730,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 29,
               "Title": "ViewResultExecutor.cs",
               "DocumentMoniker": "C:\\Users\\abhimanyu.rajput\\AppData\\Local\\Temp\\.vsdbgsrc\\2d0c2705157a8d2c3152dc0ce765d3f2aaa73def2ac6907697314a21e50c8b2d\\ViewResultExecutor.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\abhimanyu.rajput\\AppData\\Local\\Temp\\.vsdbgsrc\\2d0c2705157a8d2c3152dc0ce765d3f2aaa73def2ac6907697314a21e50c8b2d\\ViewResultExecutor.cs",
@@ -602,7 +742,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 27,
               "Title": "ResourceInvoker.cs",
               "DocumentMoniker": "C:\\Users\\abhimanyu.rajput\\AppData\\Local\\Temp\\.vsdbgsrc\\4a6394062772e7b3ec33a0b499d329da5e0bc4efbac788e6b9e8435bf19411ce\\ResourceInvoker.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\abhimanyu.rajput\\AppData\\Local\\Temp\\.vsdbgsrc\\4a6394062772e7b3ec33a0b499d329da5e0bc4efbac788e6b9e8435bf19411ce\\ResourceInvoker.cs",
@@ -614,20 +754,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 26,
               "Title": "Bill.cs",
               "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Models\\Bill.cs",
               "RelativeDocumentMoniker": "BillGeneratingSystem\\Models\\Bill.cs",
               "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Models\\Bill.cs",
               "RelativeToolTip": "BillGeneratingSystem\\Models\\Bill.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAA8wAsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAA4wAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-22T11:42:07.453Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 36,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "BillGeneratingSystem\\Controllers\\AdminController.cs",
@@ -642,11 +782,24 @@
         },
         {
           "DockedWidth": 167,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "bill-form.js",
+              "DocumentMoniker": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\js\\bill-form.js",
+              "RelativeDocumentMoniker": "BillGeneratingSystem\\wwwroot\\js\\bill-form.js",
+              "ToolTip": "C:\\Users\\raj.thakur\\Downloads\\BillGenerate\\BillGenerate\\BillGeneratingSystem\\BillGeneratingSystem\\wwwroot\\js\\bill-form.js",
+              "RelativeToolTip": "BillGeneratingSystem\\wwwroot\\js\\bill-form.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-04-23T08:44:12.118Z",
+              "EditorCaption": ""
             }
           ]
         }

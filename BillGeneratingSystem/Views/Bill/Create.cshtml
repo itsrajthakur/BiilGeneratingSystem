@@ -23,10 +23,10 @@
                     <div class="card-body">
                         <div class="row g-3">
                             <div class="col-md-6">
+                                Please provide a customer name.
                                 <label asp-for="CustomerName" class="form-label">Customer Name</label>
                                 <input asp-for="CustomerName" class="form-control" placeholder="Customer Name" required />
                                 <div class="invalid-feedback">
-                                    Please provide a customer name.
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -151,9 +151,9 @@
                         <hr class="my-3">
                         
                         <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-success">
+                           @*  <button type="submit" class="btn btn-success">
                                 <i class="bi bi-check-circle me-1"></i>Create Bill
-                            </button>
+                            </button> *@
                             <a asp-action="Index" class="btn btn-outline-secondary">
                                 <i class="bi bi-x-circle me-1"></i>Cancel
                             </a>
@@ -216,7 +216,7 @@
                 $lowStockWarning.addClass('d-none');
                 $quantityWarning.addClass('d-none');
                 
-                if ($this.val()) {
+                if ($this.val()  ) {
                     var stockQuantity = parseInt($this.find('option:selected').data('stock'));
                     var currentQuantity = parseInt($quantityInput.val()) || 1;
                     
@@ -273,86 +273,7 @@
                 }
             });
             
-            // Clone row with stock validation for Add Item button
-            $('#addItem').click(function() {
-                var $lastRow = $('#itemsTable tbody tr:last');
-                var $newRow = $lastRow.clone();
-                var index = $('#itemsTable tbody tr').length;
-                
-                // Update indices in the new row
-                $newRow.find('.product-select').attr('name', 'BillItems[' + index + '].ProductId').val('');
-                $newRow.find('.quantity').attr('name', 'BillItems[' + index + '].Quantity').val(1);
-                $newRow.find('.total-price-input').attr('name', 'BillItems[' + index + '].TotalPrice');
-                
-                // Reset displays
-                $newRow.find('.unit-price').text('0.00');
-                $newRow.find('.item-total').text('0.00');
-                $newRow.find('.stock-warning').addClass('d-none');
-                $newRow.find('.low-stock-warning').addClass('d-none');
-                $newRow.find('.quantity-warning').addClass('d-none');
-                
-                // Clear all validation states and attributes
-                $newRow.find('.is-invalid').removeClass('is-invalid');
-                $newRow.find('[data-out-of-stock]').removeAttr('data-out-of-stock');
-                $newRow.find('[data-exceeds-stock]').removeAttr('data-exceeds-stock');
-                
-                // Clear the selected product
-                $newRow.find('.product-select').val('');
-                
-                // Append the new row
-                $('#itemsTable tbody').append($newRow);
-                
-                // Update the bill total
-                updateBillTotal();
-                
-                // Ensure event handlers are properly attached to the new row
-                $newRow.find('.product-select').off('change').on('change', function() {
-                    var $this = $(this);
-                    var $row = $this.closest('.item-row');
-                    var $stockWarning = $row.find('.stock-warning');
-                    var $lowStockWarning = $row.find('.low-stock-warning');
-                    var $quantityInput = $row.find('.quantity');
-                    var $quantityWarning = $row.find('.quantity-warning');
-                    
-                    // Reset warnings
-                    $stockWarning.addClass('d-none');
-                    $lowStockWarning.addClass('d-none');
-                    $quantityWarning.addClass('d-none');
-                    
-                    if ($this.val()) {
-                        var stockQuantity = parseInt($this.find('option:selected').data('stock'));
-                        var currentQuantity = parseInt($quantityInput.val()) || 1;
-                        
-                        // Check if product is out of stock
-                        if (stockQuantity <= 0) {
-                            $stockWarning.removeClass('d-none');
-                            $this.addClass('is-invalid');
-                            $this.attr('data-out-of-stock', 'true');
-                        } else {
-                            $this.removeClass('is-invalid');
-                            $this.removeAttr('data-out-of-stock');
-                            
-                            // Show low stock warning if stock is less than 5
-                            if (stockQuantity < 5) {
-                                $lowStockWarning.removeClass('d-none');
-                                $lowStockWarning.find('.available-stock').text(stockQuantity);
-                            }
-                            
-                            // Check if quantity exceeds stock
-                            if (currentQuantity > stockQuantity) {
-                                $quantityWarning.removeClass('d-none');
-                                $quantityInput.addClass('is-invalid');
-                                $quantityInput.attr('data-exceeds-stock', 'true');
-                            } else {
-                                $quantityInput.removeClass('is-invalid');
-                                $quantityInput.removeAttr('data-exceeds-stock');
-                            }
-                        }
-                    }
-                });
-            });
-
-            // Form validation with SweetAlert
+               // Form validation with SweetAlert
             $("#billForm").submit(function(e) {
                 var form = $(this)[0];
                 
@@ -459,17 +380,25 @@
                 
                 // Update all amount displays
                 var billTotal = $('#billTotal').text();
-                $('#cashAmountDisplay').text(billTotal);
                 $('#qrAmountDisplay').text(billTotal);
+                $('#cashAmountDisplay').text(billTotal);
+                $('#cashAmountTotal').text(billTotal);
                 $('#pendingAmountDisplay').text(billTotal);
+                $('#pendingAmountTotal').text(billTotal);
+                $('#cardAmountDisplay').text(billTotal);
+                $('#cardAmountTotal').text(billTotal);
             });
             
             // Update pending amount display when bill total changes
             function updateAllAmountDisplays() {
                 var billTotal = $('#billTotal').text();
-                $('#cashAmountDisplay').text(billTotal);
                 $('#qrAmountDisplay').text(billTotal);
+                $('#cashAmountDisplay').text(billTotal);
+                $('#cashAmountTotal').text(billTotal);
                 $('#pendingAmountDisplay').text(billTotal);
+                $('#pendingAmountTotal').text(billTotal);
+                $('#cardAmountDisplay').text(billTotal);
+                $('#cardAmountTotal').text(billTotal);
             }
             
             // Hook into existing bill total update function

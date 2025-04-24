@@ -4,92 +4,109 @@
 }
 
 <div class="container py-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <div>
-            <h2 class="mb-1"><i class="bi bi-box-seam me-2"></i>Products</h2>
-            <p class="text-muted">Manage your product inventory</p>
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h2 class="mb-1 display-6 fw-bold"><i class="bi bi-box-seam me-2 text-primary"></i>Products</h2>
+            <p class="text-muted">Manage your product inventory and track stock levels</p>
         </div>
-        <a asp-action="Create" class="btn btn-primary">
-            <i class="bi bi-plus-lg me-1"></i>Add New Product
-        </a>
+        <div class="col-md-4 text-md-end d-flex align-items-center justify-content-md-end">
+            <a asp-action="Create" class="btn btn-primary btn-lg shadow-sm">
+                <i class="bi bi-plus-lg me-1"></i>Add New Product
+            </a>
+        </div>
     </div>
 
-    <div class="card border-0 shadow-sm">
-        <div class="card-body">
-            <table id="productsTable" class="table table-hover align-middle w-100">
-                <thead class="bg-light">
-                    <tr>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Price</th>
-                        <th>Stock</th>
-                        <th width="120">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
+    <div class="card border-0 shadow-sm rounded-3 overflow-hidden">
+        <div class="card-header bg-white py-3">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h5 class="mb-0 fw-bold">Product Inventory</h5>
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-sm btn-outline-secondary" id="refreshTable">
+                        <i class="bi bi-arrow-clockwise me-1"></i>Refresh
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table id="productsTable" class="table table-hover align-middle w-100 mb-0">
+                    <thead class="bg-light">
                         <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div class="bg-light rounded-circle p-2 me-3">
-                                        <i class="bi bi-box text-primary"></i>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th width="120">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-light rounded-circle p-2 me-3">
+                                            <i class="bi bi-box text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0">@item.Name</h6>
+                                            <small class="text-muted">@(item.Description?.Length > 50 ? item.Description.Substring(0, 50) + "..." : item.Description)</small>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <h6 class="mb-0">@item.Name</h6>
-                                        <small class="text-muted">@(item.Description?.Length > 50 ? item.Description.Substring(0, 50) + "..." : item.Description)</small>
+                                </td>
+                                <td><span class="badge bg-light text-dark rounded-pill">@item.Category</span></td>
+                                <td data-order="@item.Price"><span class="fw-bold text-primary">₹@item.Price.ToString("N2")</span></td>
+                                <td data-order="@item.Stock">
+                                    <span class="badge @(item.Stock > 10 ? "bg-success" : (item.Stock > 0 ? "bg-warning" : "bg-danger")) rounded-pill">
+                                        @item.Stock @(item.Stock == 1 ? "unit" : "units")
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary" data-bs-toggle="tooltip" title="Edit">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip" title="Details">
+                                            <i class="bi bi-info-circle"></i>
+                                        </a>
+                                        <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal-@item.Id" title="Delete">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
                                     </div>
-                                </div>
-                            </td>
-                            <td><span class="badge bg-light text-dark">@item.Category</span></td>
-                            <td data-order="@item.Price"><span class="fw-bold text-primary">₹@item.Price.ToString("N2")</span></td>
-                            <td data-order="@item.Stock">
-                                <span class="badge @(item.Stock > 10 ? "bg-success" : (item.Stock > 0 ? "bg-warning" : "bg-danger")) rounded-pill">
-                                    @item.Stock @(item.Stock == 1 ? "unit" : "units")
-                                </span>
-                            </td>
-                            <td>
-                                <div class="btn-group">
-                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary" data-bs-toggle="tooltip" title="Edit">
-                                        <i class="bi bi-pencil"></i>
-                                    </a>
-                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip" title="Details">
-                                        <i class="bi bi-info-circle"></i>
-                                    </a>
-                                    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal-@item.Id" title="Delete">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </div>
-                                
-                                <!-- Delete Modal -->
-                                <div class="modal fade" id="deleteModal-@item.Id" tabindex="-1" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Confirm Delete</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="text-center mb-3">
-                                                    <i class="bi bi-exclamation-triangle text-warning fs-1"></i>
+                                    
+                                    <!-- Delete Modal -->
+                                    <div class="modal fade" id="deleteModal-@item.Id" tabindex="-1" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content border-0 shadow">
+                                                <div class="modal-header border-0">
+                                                    <h5 class="modal-title">Confirm Delete</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
-                                                <p>Are you sure you want to delete <strong>@item.Name</strong>?</p>
-                                                <p class="text-danger"><small>This action cannot be undone.</small></p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                <form asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline">
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                                </form>
+                                                <div class="modal-body text-center py-4">
+                                                    <div class="mb-4">
+                                                        <i class="bi bi-exclamation-triangle text-warning fs-1"></i>
+                                                    </div>
+                                                    <h5 class="mb-3">Are you sure you want to delete this product?</h5>
+                                                    <p class="mb-1"><strong>@item.Name</strong></p>
+                                                    <p class="text-danger mb-0"><small>This action cannot be undone.</small></p>
+                                                </div>
+                                                <div class="modal-footer border-0">
+                                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                    <form asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline">
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -116,7 +133,7 @@
                 language: {
                     search: "<i class='bi bi-search'></i> _INPUT_",
                     searchPlaceholder: "Search products...",
-                    emptyTable: "<div class='text-center p-4'><i class='bi bi-box text-muted fs-1'></i><p class='mt-2'>No products found</p><a href='@Url.Action("Create")' class='btn btn-sm btn-primary'>Add your first product</a></div>",
+                    emptyTable: "<div class='text-center p-5'><i class='bi bi-box text-muted fs-1 mb-3'></i><p class='mb-3'>No products found</p><a href='@Url.Action("Create")' class='btn btn-primary'>Add your first product</a></div>",
                     info: "Showing _START_ to _END_ of _TOTAL_ products",
                     paginate: {
                         first: "<i class='bi bi-chevron-double-left'></i>",
@@ -149,6 +166,11 @@
                 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
                     return new bootstrap.Tooltip(tooltipTriggerEl)
                 });
+            });
+            
+            // Refresh button functionality
+            $('#refreshTable').click(function() {
+                location.reload();
             });
         });
     </script>
@@ -188,6 +210,24 @@
         
         table.dataTable tbody tr:hover {
             background-color: rgba(0, 123, 255, 0.03);
+        }
+        
+        /* Additional custom styling */
+        .table th {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge {
+            font-weight: 500;
+            padding: 0.5em 0.8em;
+        }
+        
+        .btn-group .btn {
+            border-radius: 0.25rem !important;
+            margin: 0 2px;
         }
     </style>
 }

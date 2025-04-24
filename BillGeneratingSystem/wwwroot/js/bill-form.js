@@ -16,9 +16,13 @@ function updateBillTotal() {
         billTotal += parseFloat($(this).text().replace(/[^0-9.-]+/g, '')) || 0;
     });
     $('#billTotal').text(billTotal.toFixed(2));
-    $('#cashAmountDisplay').text(billTotal.toFixed(2));
     $('#qrAmountDisplay').text(billTotal.toFixed(2));
+    $('#cashAmountDisplay').text(billTotal.toFixed(2));
+    $('#cashAmountTotal').text(billTotal.toFixed(2));
+    $('#cardAmountDisplay').text(billTotal.toFixed(2));
+    $('#cardAmountTotal').text(billTotal.toFixed(2));
     $('#pendingAmountDisplay').text(billTotal.toFixed(2));
+    $('#pendingAmountTotal').text(billTotal.toFixed(2));
 }
 
 function updateRowIndexes() {
@@ -50,14 +54,28 @@ $(document).ready(function () {
     $("#addItem").click(function () {
         rowIndex++;
         var newRow = $(".item-row:first").clone();
+
+        // Reset values
         newRow.find("input").val("1");
         newRow.find("select").val("");
         newRow.find(".unit-price, .item-total").text("0.00");
-        newRow.find('[name^="BillItems["]').each(function() {
+
+        // Clear any error states and messages
+        newRow.find('.is-invalid').removeClass('is-invalid');
+        newRow.find('.stock-warning, .low-stock-warning, .quantity-warning').addClass('d-none');
+        newRow.find('select').removeAttr('data-out-of-stock');
+        newRow.find('input').removeAttr('data-exceeds-stock');
+
+        // Update the input field names with new index
+        newRow.find('[name^="BillItems["]').each(function () {
             var name = $(this).attr('name');
             var newName = name.replace(/\[\d+\]/, '[' + rowIndex + ']');
             $(this).attr('name', newName);
         });
+
+        // Reset validation feedback messages
+        newRow.find('.invalid-feedback').hide();
+
         $("#itemsTable tbody").append(newRow);
     });
 
@@ -69,6 +87,7 @@ $(document).ready(function () {
             updateRowIndexes();
         }
     });
+
 
     // Payment method change
     $('#paymentMethod').change(function() {

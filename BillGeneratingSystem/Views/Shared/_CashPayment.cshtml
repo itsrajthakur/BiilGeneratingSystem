@@ -1,13 +1,16 @@
 <div id="cash-payment-container" class="payment-method-container d-none">
     <div class="card shadow-sm mb-4 border-info">
-        <div class="card-header bg-info text-white">
-            <h5 class="mb-0"><i class="bi bi-cash me-2"></i>Cash Payment</h5>
+        <div class="card-header bg-info text-white d-flex align-items-center">
+            <i class="bi bi-cash me-2 fs-4"></i>
+            <h5 class="mb-0">Cash Payment</h5>
         </div>
-        <div class="card-body">
-            <div class="text-center mb-3">
-                <i class="bi bi-cash-coin text-info" style="font-size: 3rem;"></i>
+        <div class="card-body p-4">
+            <div class="text-center mb-4">
+                <i class="bi bi-cash-coin text-info mb-3" style="font-size: 3rem;"></i>
+                <h6 class="mb-3">Collect cash payment from customer</h6>
             </div>
-            <div class="alert alert-info mb-4">
+            
+            <div class="alert alert-info mb-4 shadow-sm">
                 <div class="d-flex">
                     <div class="me-3">
                         <i class="bi bi-info-circle-fill"></i>
@@ -17,11 +20,24 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-info btn-lg px-4 rounded-pill text-white" id="cashSubmitBtn">
+            
+            <div class="payment-details p-3 bg-light rounded mb-4">
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted">Amount to Collect:</span>
+                    <span class="fw-bold text-info">₹<span id="cashAmountTotal">0.00</span></span>
+                </div>
+            </div>
+            
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-info btn-lg px-4 rounded-pill shadow-sm text-white" id="cashSubmitBtn">
                     <i class="bi bi-check-circle me-2"></i>Complete Cash Payment
                 </button>
             </div>
+        </div>
+        <div class="card-footer bg-light border-top-0 text-center">
+            <small class="text-muted">
+                <i class="bi bi-cash-stack me-1"></i>Cash payment will be marked as completed
+            </small>
         </div>
     </div>
 </div>

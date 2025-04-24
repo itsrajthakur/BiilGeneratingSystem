@@ -2,25 +2,193 @@
     ViewData["Title"] = "Dashboard";
 }
 
-<h2>Admin Dashboard</h2>
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col">
+            <h2 class="display-6 fw-bold mb-1"><i class="bi bi-speedometer2 me-2 text-primary"></i>Admin Dashboard</h2>
+            <p class="text-muted">Welcome to your billing system control center</p>
+        </div>
+    </div>
 
-<div class="row mt-4">
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Products</h5>
-                <p class="card-text">Manage your product inventory</p>
-                <a asp-controller="Product" asp-action="Index" class="btn btn-primary">Go to Products</a>
+    <!-- Stats Cards -->
+    <div class="row mb-4">
+        <div class="col-md-3 mb-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="rounded-circle bg-primary bg-opacity-10 p-3 me-3">
+                            <i class="bi bi-receipt text-primary fs-4"></i>
+                        </div>
+                        <div>
+                            <h6 class="text-muted mb-1">Total Bills</h6>
+                            <h3 class="mb-0 fw-bold">@ViewBag.TotalBills</h3>
+                        </div>
+                    </div>
+                    <a asp-controller="Bill" asp-action="Index" class="btn btn-sm btn-outline-primary w-100">View All Bills</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="rounded-circle bg-success bg-opacity-10 p-3 me-3">
+                            <i class="bi bi-box-seam text-success fs-4"></i>
+                        </div>
+                        <div>
+                            <h6 class="text-muted mb-1">Products</h6>
+                            <h3 class="mb-0 fw-bold">@ViewBag.TotalProducts</h3>
+                        </div>
+                    </div>
+                    <a asp-controller="Product" asp-action="Index" class="btn btn-sm btn-outline-success w-100">Manage Products</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="rounded-circle bg-warning bg-opacity-10 p-3 me-3">
+                            <i class="bi bi-exclamation-triangle text-warning fs-4"></i>
+                        </div>
+                        <div>
+                            <h6 class="text-muted mb-1">Low Stock</h6>
+                            <h3 class="mb-0 fw-bold">@ViewBag.LowStockCount</h3>
+                        </div>
+                    </div>
+                    <a asp-controller="Product" asp-action="LowStock" class="btn btn-sm btn-outline-warning w-100">View Low Stock</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="rounded-circle bg-info bg-opacity-10 p-3 me-3">
+                            <i class="bi bi-currency-rupee text-info fs-4"></i>
+                        </div>
+                        <div>
+                            <h6 class="text-muted mb-1">Revenue</h6>
+                            <h3 class="mb-0 fw-bold">₹@ViewBag.TotalRevenue</h3>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-sm btn-outline-info w-100">View Reports</a>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Bills</h5>
-                <p class="card-text">View and manage bills</p>
-                <a asp-controller="Bill" asp-action="Index" class="btn btn-primary">Go to Bills</a>
+
+    <div class="row">
+        <!-- Quick Actions -->
+        <div class="col-md-4 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-white py-3">
+                    <h5 class="mb-0 fw-bold"><i class="bi bi-lightning-charge me-2 text-primary"></i>Quick Actions</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a asp-controller="Bill" asp-action="Create" class="btn btn-primary">
+                            <i class="bi bi-plus-circle me-2"></i>Create New Bill
+                        </a>
+                        <a asp-controller="Product" asp-action="Create" class="btn btn-outline-primary">
+                            <i class="bi bi-box-seam me-2"></i>Add New Product
+                        </a>
+                        <a href="#" class="btn btn-outline-primary">
+                            <i class="bi bi-graph-up me-2"></i>Generate Reports
+                        </a>
+                        <a href="#" class="btn btn-outline-primary">
+                            <i class="bi bi-gear me-2"></i>System Settings
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Bills -->
+        <div class="col-md-8 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 fw-bold"><i class="bi bi-receipt me-2 text-primary"></i>Recent Bills</h5>
+                    <a asp-controller="Bill" asp-action="Index" class="btn btn-sm btn-outline-primary">View All</a>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Bill #</th>
+                                    <th>Customer</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (ViewBag.RecentBills != null)
+                                {
+                                    @foreach (var bill in ViewBag.RecentBills)
+                                    {
+                                        <tr>
+                                            <td><a asp-controller="Bill" asp-action="Details" asp-route-id="@bill.Id" class="text-decoration-none">@bill.BillNumber</a></td>
+                                            <td>@bill.CustomerName</td>
+                                            <td>₹@bill.TotalAmount.ToString("N2")</td>
+                                            <td>@bill.BillDate.ToString("dd MMM yyyy")</td>
+                                            <td>
+                                                @{
+                                                    string badgeClass = bill.PaymentMethod switch
+                                                    {
+                                                        "Cash" => "bg-success-subtle text-success",
+                                                        "Card" => "bg-info-subtle text-info",
+                                                        "UPI" => "bg-primary-subtle text-primary",
+                                                        "Pending" => "bg-warning-subtle text-warning",
+                                                        _ => "bg-secondary-subtle text-secondary"
+                                                    };
+                                                }
+                                                <span class="badge @badgeClass rounded-pill">@bill.PaymentMethod</span>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="5" class="text-center py-4">
+                                            <div class="text-muted">
+                                                <i class="bi bi-receipt fs-1 mb-3 d-block"></i>
+                                                <p>No bills found</p>
+                                                <a asp-controller="Bill" asp-action="Create" class="btn btn-sm btn-primary">Create your first bill</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Initialize tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            });
+        });
+    </script>
+    
+    <style>
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+    </style>
+}
